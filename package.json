@@ -1,0 +1,32 @@
+{
+  "name": "henry-super-front",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Henry 管理平台前端（Umi Max + React + TypeScript）",
+  "scripts": {
+    "dev": "max dev",
+    "build": "max build",
+    "postinstall": "max setup",
+    "setup": "max setup",
+    "start": "npm run dev",
+    "lint": "max lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.4.0",
+    "@fontsource-variable/outfit": "^5.3.0",
+    "@umijs/max": "^4.7.6",
+    "ahooks": "^3.9.7",
+    "antd": "^5.21.0",
+    "axios": "^1.7.7",
+    "classnames": "^2.5.1",
+    "jsencrypt": "^3.3.2",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "less": "^4.2.0",
+    "typescript": "^5.6.2"
+  }
+}

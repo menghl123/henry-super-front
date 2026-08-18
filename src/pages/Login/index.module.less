@@ -1,0 +1,357 @@
+// ============================================================
+// 登录页样式 —— Sophistication & Trust（企业冷中性）左右分屏
+// 设计令牌：
+//   --brand-ink   #0F172A  深海军蓝（品牌区底色）
+//   --brand-mid   #1E1B4B  靛蓝-950（品牌区渐变终点）
+//   --accent-1    #6366F1  靛蓝（强调主色）
+//   --accent-2    #8B5CF6  紫罗兰（强调渐变终点）
+// ============================================================
+
+// ---- 动效令牌 ----
+@ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+@dur-fast: 0.45s;
+
+.page {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+// ------------------------------------------------------------
+// 左侧：深色品牌展示区
+// ------------------------------------------------------------
+.brand {
+  position: relative;
+  flex: 1.15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(1100px 700px at 12% -10%, rgba(99, 102, 241, 0.32), transparent 60%),
+    radial-gradient(900px 600px at 105% 110%, rgba(139, 92, 246, 0.28), transparent 62%),
+    linear-gradient(160deg, #0f172a 0%, #1e1b4b 100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 75% 75% at 50% 45%, #000 30%, transparent 72%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 45%, #000 30%, transparent 72%);
+    pointer-events: none;
+  }
+}
+
+.brandInner {
+  position: relative;
+  z-index: 1;
+  width: min(480px, 78%);
+  animation: fadeInUp @dur-fast @ease-out both;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 64px;
+}
+
+.logoMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  font-family: 'Outfit Variable', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow: 0 8px 22px rgba(99, 102, 241, 0.45);
+}
+
+.logoText {
+  font-family: 'Outfit Variable', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #e2e8f0;
+}
+
+.brandTitle {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 3.2vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  color: #f8fafc;
+}
+
+.brandSub {
+  margin: 0 0 48px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.72);
+}
+
+.brandPoints {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  li {
+    position: relative;
+    padding-left: 26px;
+    font-size: 15px;
+    color: rgba(241, 245, 249, 0.9);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #818cf8, #a78bfa);
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.8);
+    }
+  }
+}
+
+// 浮动光晕球
+.orb1,
+.orb2,
+.orb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  animation: float 12s ease-in-out infinite;
+}
+
+.orb1 {
+  width: 300px;
+  height: 300px;
+  top: -80px;
+  right: -60px;
+  background: rgba(99, 102, 241, 0.28);
+}
+
+.orb2 {
+  width: 240px;
+  height: 240px;
+  bottom: 60px;
+  left: -70px;
+  background: rgba(139, 92, 246, 0.26);
+  animation-delay: -4s;
+}
+
+.orb3 {
+  width: 180px;
+  height: 180px;
+  top: 46%;
+  right: 14%;
+  background: rgba(129, 140, 248, 0.22);
+  animation-delay: -8s;
+}
+
+// ------------------------------------------------------------
+// 右侧：浅色表单区
+// ------------------------------------------------------------
+.formSide {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+}
+
+.formCard {
+  width: min(400px, 100%);
+  padding: 44px 40px 32px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow:
+    0 24px 60px -24px rgba(30, 27, 75, 0.28),
+    0 0 0 1px rgba(30, 27, 75, 0.05),
+    0 10px 30px -12px rgba(99, 102, 241, 0.16);
+  animation: fadeInUp @dur-fast @ease-out both;
+  animation-delay: 0.08s;
+}
+
+.formTitle {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #0f172a;
+}
+
+.formSub {
+  margin: 0 0 32px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+// 表单项间距统一
+.formCard :global(.ant-form-item) {
+  margin-bottom: 20px;
+}
+
+// 输入框（46px 高、内嵌浅底、聚焦品牌色光环）
+// 高度只加在 affix-wrapper 上，内层 input 自适应并清除自身尺寸，
+// 避免内层被撑破导致 placeholder / 图标与中线不齐
+.formCard :global(.ant-input-affix-wrapper) {
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  padding-block: 0;
+  padding-inline: 14px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  transition: all 0.25s @ease-out;
+}
+
+.formCard :global(.ant-input-affix-wrapper .ant-input) {
+  height: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.formCard :global(.ant-input-affix-wrapper:hover) {
+  border-color: #c7d2fe;
+}
+
+.formCard :global(.ant-input-affix-wrapper-focused) {
+  background: #fff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.formCard :global(.ant-input-prefix) {
+  margin-right: 10px;
+}
+
+.inputIcon {
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+// 记住我 / 忘记密码 一行
+.formRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: -4px 0 24px;
+}
+
+.remember {
+  color: #475569;
+  font-size: 13px;
+}
+
+.forgot {
+  color: #6366f1;
+  font-size: 13px;
+  cursor: pointer;
+
+  &:hover {
+    color: #4f46e5;
+  }
+}
+
+// 渐变 CTA 按钮
+.submit {
+  height: 46px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow: 0 10px 24px -10px rgba(99, 102, 241, 0.55);
+  transition:
+    transform 0.25s @ease-out,
+    box-shadow 0.25s @ease-out,
+    opacity 0.25s @ease-out;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px -10px rgba(99, 102, 241, 0.65);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+.formFooter {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+// ------------------------------------------------------------
+// 动效
+// ------------------------------------------------------------
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(16px, -18px) scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brandInner,
+  .formCard,
+  .orb1,
+  .orb2,
+  .orb3 {
+    animation: none;
+  }
+}
+
+// ------------------------------------------------------------
+// 响应式：窄屏隐藏品牌区，聚焦登录
+// ------------------------------------------------------------
+@media (max-width: 960px) {
+  .brand {
+    display: none;
+  }
+  .formSide {
+    padding: 32px 20px;
+  }
+  .formCard {
+    padding: 36px 28px 28px;
+  }
+}
