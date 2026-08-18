@@ -1,0 +1,17 @@
+# 依赖与构建产物（不参与代码理解）
+node_modules/
+dist/
+src/.umi/
+src/.umi-production/
+.umi-production/
+
+# 环境变量与密钥
+.env.local
+.env.*.local
+
+# 编辑器与 IDE
+.idea/
+.vscode/
+
+# 日志
+*.log

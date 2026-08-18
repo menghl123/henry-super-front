@@ -48,5 +48,8 @@ src/.umi-production/
 .idea/
 .vscode/
 
+# Claude 本地配置（个人覆盖，不入库；团队共享配置在 .claude/settings.json 等文件）
+.claude/settings.local.json
+
 # 临时文件
 *.tmp
